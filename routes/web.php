@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'HomeController@home');
 
 Auth::routes();
+
+Route::group(['middleware' => 'auth'], function() {
+    Route::resource('users', 'UsersController', ['only' => ['index', 'show', 'edit', 'update']]);
+});
