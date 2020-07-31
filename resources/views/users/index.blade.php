@@ -14,6 +14,25 @@
             @endif
               <a href="{{ url('users/' .$user->id) }}">{{ $user->name }}</a>
           </div>
+          @if (auth()->user()->followed($user->id))
+            <div class="px-2">
+              <span class="px-1 bg-secondary text-light">フォローされています</span>
+            </div>
+          @endif
+          <div class="d-flex justify-content-end flex-grow-1">
+            @if (auth()->user()->following($user->id))
+              <form action="{{ route('unfollow', ['id' => $user->id]) }}" method="POST">
+                @csrf
+                <input type="hidden" name="_method" value="delete">
+                <button type="submit" class="btn btn-danger">フォロー解除</button>
+              </form>
+            @else
+              <form action="{{ route('follow', ['id' => $user->id]) }}" method="POST">
+                @csrf
+                <button type="submit" class="btn btn-primary">フォローする</button>
+              </form>
+            @endif
+          </div>
         @endforeach
       </div>
     </div>

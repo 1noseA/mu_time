@@ -22,6 +22,32 @@ class UsersController extends Controller
         return view('users.index',  compact('users'));
     }
 
+    // フォロー
+    public function follow(User $user)
+    {
+        $follower = auth()->user();
+        // フォローしているか
+        $following = $follower->following($user->id);
+        if(!$following) {
+            // フォローしていなければフォローする
+            $follower->follow($user->id);
+            return back();
+        }
+    }
+
+    // フォロー解除
+    public function unfollow(User $user)
+    {
+        $follower = auth()->user();
+        // フォローしているか
+        $following = $follower->following($user->id);
+        if($following) {
+            // フォローしていればフォローを解除する
+            $follower->unfollow($user->id);
+            return back();
+        }
+    }
+
     /**
      * Show the form for creating a new resource.
      *
