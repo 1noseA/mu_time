@@ -16,10 +16,13 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(User $user)
     {
-        $users = User::paginate(10);
-        return view('users.index',  compact('users'));
+        $all_users = $user->getAllUsers(auth()->user()->id);
+
+        return view('users.index', [
+            'all_users'  => $all_users
+        ]);
     }
 
     // フォロー
@@ -27,8 +30,8 @@ class UsersController extends Controller
     {
         $follower = auth()->user();
         // フォローしているか
-        $following = $follower->following($user->id);
-        if(!$following) {
+        $is_following = $follower->isFollowing($user->id);
+        if(!$is_following) {
             // フォローしていなければフォローする
             $follower->follow($user->id);
             return back();
@@ -40,8 +43,8 @@ class UsersController extends Controller
     {
         $follower = auth()->user();
         // フォローしているか
-        $following = $follower->following($user->id);
-        if($following) {
+        $is_following = $follower->isFollowing($user->id);
+        if($is_following) {
             // フォローしていればフォローを解除する
             $follower->unfollow($user->id);
             return back();

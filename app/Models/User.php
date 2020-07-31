@@ -37,6 +37,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function getAllUsers(Int $user_id)
+    {
+        return $this->Where('id', '<>', $user_id)->paginate(10);
+    }
+
     public function followers()
     {
         return $this->belongsToMany(self::class, 'followers', 'followed_id', 'following_id');
@@ -60,13 +65,13 @@ class User extends Authenticatable
     }
 
     // フォローしているか
-    public function following(Int $user_id) 
+    public function isFollowing(Int $user_id) 
     {
         return $this->follows()->where('followed_id', $user_id)->exists();
     }
 
     // フォローされているか
-    public function followed(Int $user_id) 
+    public function isFollowed(Int $user_id) 
     {
         return $this->followers()->where('following_id', $user_id)->exists();
     }
