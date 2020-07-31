@@ -52,7 +52,7 @@
                 @endif
               @else
                 <li class="nav-item">
-                  @if ($user->profile_image == null)
+                  @if (auth()->user()->profile_image == null)
                     <img src="/img/mu.png" class="rounded-circle" width="50" height="50">
                   @else
                     <img src="{{ asset('storage/profile_image/' .auth()->user()->profile_image) }}" class="rounded-circle" width="50" height="50">

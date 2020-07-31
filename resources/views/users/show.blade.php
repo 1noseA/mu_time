@@ -39,6 +39,7 @@
                     <span class="mt-2 px-1 bg-secondary text-light">フォローされています</span>
                   @endif
                 @endif
+                <div class="mt-2">{{ $user->introduction }}</div>
               </div>
             </div>
             <div class="d-flex justify-content-end">

@@ -15,11 +15,14 @@
               @endif
               <a href="{{ url('users/' .$user->id) }}">{{ $user->name }}</a>
             
+              <div class="ml-3">
               @if (auth()->user()->isFollowed($user->id))
-                <div class="px-2">
-                  <span class="px-1 bg-secondary text-light">フォローされています</span>
-                </div>
+                <div class="px-1 bg-secondary text-light">フォローされています</div>
               @endif
+                <div class="ml-2">
+                  {{ $user->introduction }}
+                </div>
+              </div>
               <div class="d-flex justify-content-end flex-grow-1">
                 @if (auth()->user()->isFollowing($user->id))
                   <form action="{{ route('unfollow', ['id' => $user->id]) }}" method="POST">
