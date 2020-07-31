@@ -11,7 +11,7 @@
               @if ($user->profile_image == null)
                 <img src="/img/mu.png" class="rounded-circle" width="50" height="50">
               @else
-                <img src="{{ $user->profile_image }}" class="rounded-circle" width="50" height="50">
+                <img src="{{ asset('storage/profile_image/' .$user->profile_image) }}" class="rounded-circle" width="50" height="50">
               @endif
               <a href="{{ url('users/' .$user->id) }}">{{ $user->name }}</a>
             
