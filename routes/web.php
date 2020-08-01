@@ -23,4 +23,5 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('users/{id}/follow', 'UsersController@follow')->name('follow');
     Route::delete('users/{id}/unfollow', 'UsersController@unfollow')->name('unfollow');
 
+    Route::resource('tweets', 'TweetsController');
 });
