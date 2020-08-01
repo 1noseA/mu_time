@@ -37,15 +37,28 @@ class TweetsController extends Controller
             'comments' => $comments
         ]);
     }
-    
+
     public function create()
     {
-        //
+        $user = auth()->user();
+
+        return view('tweets.create', [
+            'user' => $user
+        ]);
     }
 
-    public function store(Request $request)
+    public function store(Request $request, Tweet $tweet)
     {
-        //
+        $user = auth()->user();
+        $data = $request->all();
+        $validator = Validator::make($data, [
+            'text' => ['required', 'string', 'max:140']
+        ]);
+
+        $validator->validate();
+        $tweet->tweetStore($user->id, $data);
+
+        return redirect('tweets');
     }
 
     public function edit($id)

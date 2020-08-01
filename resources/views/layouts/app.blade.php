@@ -51,6 +51,9 @@
                 </li>
                 @endif
               @else
+                <li class="nav-item mr-5">
+                  <a href="{{ url('tweets/create') }}" class="btn btn-md btn-primary">ツイートする</a>
+                </li>
                 <li class="nav-item">
                   @if (auth()->user()->profile_image == null)
                     <img src="/img/mu.png" class="rounded-circle" width="50" height="50">
