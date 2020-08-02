@@ -25,16 +25,8 @@ class CommentsController extends Controller
 
     public function destroy(Comment $comment)
     {
-        // $user = auth()->user();
         $comment->delete();
 
         return back();
     }
-
-    // public function destroy(Request $request)
-    // {
-    //     $comment = Comment::find($request->comment_id);
-    //     $comment->delete();
-    //     return back();
-    // }
 }

@@ -29,9 +29,4 @@ class Comment extends Model
 
         return;
     }
-
-    // public function commentDestroy(Int $user_id, Int $tweet_id, Int $comment_id)
-    // {
-    //     return $this->where('user_id', $user_id)->where('tweet_id', $tweet_id)->where('id', $comment_id)->delete();
-    // }
 }
