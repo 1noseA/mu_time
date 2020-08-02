@@ -24,4 +24,6 @@ Route::group(['middleware' => 'auth'], function() {
     Route::delete('users/{id}/unfollow', 'UsersController@unfollow')->name('unfollow');
 
     Route::resource('tweets', 'TweetsController');
+
+    Route::resource('comments', 'CommentsController', ['only' => ['store', 'destroy']]);
 });
