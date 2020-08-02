@@ -27,7 +27,6 @@
                 <form method="POST" action="{{ url('tweets/' .$tweet->id) }}" class="mb-0">
                   @csrf
                   @method('DELETE')
-
                   <a href="{{ url('tweets/' .$tweet->id .'/edit') }}" class="dropdown-item">編集</a>
                   <button type="submit" class="dropdown-item del-btn">削除</button>
                 </form>
@@ -64,6 +63,11 @@
             <div class="py-3">
               {!! nl2br(e($comment->text)) !!}
             </div>
+            <form method="POST" action="{{ url('comments/' .$comment->id) }}" class="mb-0">
+              @csrf
+              @method('DELETE')
+              <button type="submit" class="dropdown-item del-btn">削除</button>
+            </form>
           </li>
         @empty
           <li class="list-group-item">
@@ -97,7 +101,7 @@
                   <div class="col-md-12 text-right">
                     <p class="mb-4 text-danger">140文字以内</p>
                     <button type="submit" class="btn btn-primary">
-                      ツイートする
+                      コメントする
                     </button>
                   </div>
                 </div>
