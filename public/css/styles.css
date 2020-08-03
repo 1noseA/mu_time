@@ -82,3 +82,13 @@ i, a:hover{
   color: #8d93c8;
   text-decoration: none;
 }
+
+/* footerを下部に固定 */
+body {
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+}
+main {
+  flex: 1;
+}
