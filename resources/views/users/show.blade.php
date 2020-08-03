@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-  <div class="row justify-content-center">
+  <div class="row justify-content-center my-5">
     <div class="col-md-8 mb-3">
       <div class="card">
         <div class="d-inline-flex">
@@ -123,7 +123,7 @@
       @endforeach
     @endif
   </div>
-  <div class="my-4 d-flex justify-content-center">
+  <div class="my-2 d-flex justify-content-center">
       {{ $timelines->links() }}
   </div>
 </div>
