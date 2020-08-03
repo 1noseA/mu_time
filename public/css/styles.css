@@ -43,3 +43,178 @@ footer a:hover {
   color: #a9a9a9;
   text-decoration: none;
 }
+
+/* ボタン */
+.btn-main {
+  background: #777;
+  color: #fff;
+}
+.btn-main:hover {
+  background-color: #555;
+  color: #fff;
+}
+
+.btn-follow {
+  background: #8d93c8;
+  color: #fff;
+}
+.btn-follow:hover {
+  background-color: #a4a8d4;
+  color: #fff;
+}
+
+.btn-un {
+  color: #8d93c8;
+  border-color: #8d93c8;
+}
+.btn-un:hover {
+  background-color: #a4a8d4;
+  color: #fff;
+}
+
+.top-text {
+  font-size: 16px;
+}
+
+strong {
+  font-size: 24px;
+}
+
+* {
+  color: #555;
+}
+i, a {
+  color: #4d4398;
+}
+i, a:hover{
+  color: #8d93c8;
+  text-decoration: none;
+}
+
+/* footerを下部に固定 */
+body {
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+}
+main {
+  flex: 1;
+}
+
+/* トップボタン */
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  /* font-size: 62.5%; */
+}
+
+.btn,
+a.btn,
+button.btn {
+  line-height: 1.5;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+}
+
+a.btn-emergency {
+  position: relative;
+
+  display: block;
+
+  width: 200px;
+  height: 130px;
+  margin: 0 auto;
+}
+
+a.btn-emergency:hover .btn-emergency-top {
+  top: 10px;
+
+  height: 50px;
+}
+
+a.btn-emergency:active .btn-emergency-top {
+  top: 20px;
+
+  height: 40px;
+}
+
+.btn-emergency-top {
+  position: absolute;
+  top: 0;
+  left: 20px;
+
+  width: 160px;
+  height: 60px;
+  margin-top: 30px;
+
+  -webkit-transition: all 0.3s;
+
+  transition: all 0.3s;
+
+  border-radius: 0 0 50% 50%;
+  background: #444;
+}
+
+.btn-emergency-top:before {
+  position: absolute;
+  top: -30px;
+  left: 0;
+
+  width: 160px;
+  height: 60px;
+
+  content: "";
+
+  border-radius: 80px / 30px;
+  background: #555;
+}
+
+.btn-emergency-top span {
+  font-size: 38px;
+  font-weight: bold;
+
+  position: absolute;
+  top: -24px;
+  left: 0;
+
+  width: 100%;
+
+  -webkit-transform: scaleY(0.75);
+
+  transform: scaleY(0.75);
+  text-align: center;
+
+  color: #fff;
+}
+
+.btn-emergency-bottom {
+  position: absolute;
+  top: 38px;
+  left: 0;
+
+  width: 200px;
+  height: 80px;
+
+  border-radius: 100px / 40px;
+  background: #d8e4ea;
+  -webkit-box-shadow: 0 8px 0 #c4cacc;
+  box-shadow: 0 8px 0 #c4cacc;
+}

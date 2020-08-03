@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-  <div class="row justify-content-center">
+  <div class="row justify-content-center my-5">
     <div class="col-md-8 mb-3">
       <div class="card">
         <div class="d-inline-flex">
@@ -20,18 +20,18 @@
             <div class="d-flex">
               <div>
                 @if ($user->id === Auth::user()->id)
-                  <a href="{{ url('users/' .$user->id .'/edit') }}" class="btn btn-primary">プロフィールを編集する</a>
+                  <a href="{{ url('users/' .$user->id .'/edit') }}" class="btn btn-main">プロフィールを編集する</a>
                 @else
                   @if ($is_following)
                     <form action="{{ route('unfollow', ['id' => $user->id]) }}" method="POST">
                       {{ csrf_field() }}
                       {{ method_field('DELETE') }}
-                      <button type="submit" class="btn btn-danger">フォロー解除</button>
+                      <button type="submit" class="btn btn-un">フォロー解除</button>
                     </form>
                   @else
                     <form action="{{ route('follow', ['id' => $user->id]) }}" method="POST">
                       {{ csrf_field() }}
-                      <button type="submit" class="btn btn-primary">フォローする</button>
+                      <button type="submit" class="btn btn-follow">フォローする</button>
                     </form>
                   @endif
 
@@ -66,13 +66,12 @@
           <div class="card">
             <div class="card-haeder p-3 w-100 d-flex">
               @if ($user->profile_image == null)
-                <img src="/img/mu.png" class="rounded-circle" width="100" height="100">
+                <img src="/img/mu.png" class="rounded-circle" width="50" height="50">
               @else
-                <img src="{{ asset('storage/profile_image/' .$user->profile_image) }}" class="rounded-circle" width="100" height="100">
+                <img src="{{ asset('storage/profile_image/' .$user->profile_image) }}" class="rounded-circle" width="50" height="50">
               @endif
               <div class="ml-2 d-flex flex-column flex-grow-1">
                 <p class="mb-0">{{ $timeline->user->name }}</p>
-                <a href="{{ url('users/' .$timeline->user->id) }}" class="text-secondary">{{ $timeline->user->name }}</a>
               </div>
               <div class="d-flex justify-content-end flex-grow-1">
                 <p class="mb-0 text-secondary">{{ $timeline->created_at->format('Y-m-d H:i') }}</p>
@@ -124,7 +123,7 @@
       @endforeach
     @endif
   </div>
-  <div class="my-4 d-flex justify-content-center">
+  <div class="my-2 d-flex justify-content-center">
       {{ $timelines->links() }}
   </div>
 </div>

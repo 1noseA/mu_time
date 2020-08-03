@@ -5,7 +5,7 @@
   <div class="row justify-content-center">
     <div class="col-md-8">
       <div class="card">
-        <div class="card-header">Update</div>
+        <div class="card-header text-center">プロフィール編集</div>
 
         <div class="card-body">
           <form method="POST" action="{{ url('users/' .$user->id) }}" enctype="multipart/form-data">
@@ -17,7 +17,7 @@
 
               <div class="col-md-6 d-flex align-items-center">
                 @if ($user->profile_image == null)
-                  <img src="/img/mu.png" class="rounded-circle" width="100" height="100">
+                  <img src="/img/mu.png" class="rounded-circle" width="80" height="80">
                 @else
                   <img src="{{ asset('storage/profile_image/' .$user->profile_image) }}" class="mr-2 rounded-circle" width="80" height="80" alt="profile_image">
                 @endif
@@ -75,7 +75,7 @@
 
             <div class="form-group row mb-0">
               <div class="col-md-6 offset-md-4">
-                <button type="submit" class="btn btn-primary">更新する</button>
+                <button type="submit" class="btn btn-main">更新する</button>
               </div>
             </div>
           </form>

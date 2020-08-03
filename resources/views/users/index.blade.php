@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-10 my-5">
-        <h3 class="text-center mb-3">ユーザー一覧</h3>
+        <h3 class="text-center mb-3">ユーザ一覧</h3>
         @foreach ($all_users as $user)
           <div class="card">
             <div class="card-haeder p-3 w-100 d-flex">
@@ -28,12 +28,12 @@
                   <form action="{{ route('unfollow', ['id' => $user->id]) }}" method="POST">
                     {{ csrf_field() }}
                     {{ method_field('DELETE') }}
-                  <button type="submit" class="btn btn-danger">フォロー解除</button>
+                  <button type="submit" class="btn btn-un">フォロー解除</button>
                   </form>
                 @else
                   <form action="{{ route('follow', ['id' => $user->id]) }}" method="POST">
                     {{ csrf_field() }}
-                  <button type="submit" class="btn btn-primary">フォローする</button>
+                  <button type="submit" class="btn btn-follow">フォローする</button>
                   </form>
                 @endif
               </div>
