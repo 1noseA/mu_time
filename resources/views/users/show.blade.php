@@ -66,13 +66,12 @@
           <div class="card">
             <div class="card-haeder p-3 w-100 d-flex">
               @if ($user->profile_image == null)
-                <img src="/img/mu.png" class="rounded-circle" width="100" height="100">
+                <img src="/img/mu.png" class="rounded-circle" width="50" height="50">
               @else
-                <img src="{{ asset('storage/profile_image/' .$user->profile_image) }}" class="rounded-circle" width="100" height="100">
+                <img src="{{ asset('storage/profile_image/' .$user->profile_image) }}" class="rounded-circle" width="50" height="50">
               @endif
               <div class="ml-2 d-flex flex-column flex-grow-1">
                 <p class="mb-0">{{ $timeline->user->name }}</p>
-                <a href="{{ url('users/' .$timeline->user->id) }}" class="text-secondary">{{ $timeline->user->name }}</a>
               </div>
               <div class="d-flex justify-content-end flex-grow-1">
                 <p class="mb-0 text-secondary">{{ $timeline->created_at->format('Y-m-d H:i') }}</p>

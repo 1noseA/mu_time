@@ -6,7 +6,11 @@
     <div class="col-md-8 mb-3">
       <div class="card">
         <div class="card-haeder p-3 w-100 d-flex">
-          <img src="{{ asset('storage/profile_image/' .$tweet->user->profile_image) }}" class="rounded-circle" width="50" height="50">
+          @if ($user->profile_image == null)
+            <img src="/img/mu.png" class="rounded-circle" width="50" height="50">
+          @else
+            <img src="{{ asset('storage/profile_image/' .$user->profile_image) }}" class="mr-2 rounded-circle" width="50" height="50" alt="profile_image">
+          @endif
             <div class="ml-2 d-flex flex-column">
               <a href="{{ url('users/' .$tweet->user->id) }}" class="text-secondary">{{ $tweet->user->name }}</a>
             </div>
@@ -65,7 +69,11 @@
         @forelse ($comments as $comment)
           <li class="list-group-item">
             <div class="py-3 w-100 d-flex">
-              <img src="{{ asset('storage/profile_image/' .$comment->user->profile_image) }}" class="rounded-circle" width="50" height="50">
+              @if ($user->profile_image == null)
+                <img src="/img/mu.png" class="rounded-circle" width="50" height="50">
+              @else
+                <img src="{{ asset('storage/profile_image/' .$user->profile_image) }}" class="mr-2 rounded-circle" width="50" height="50" alt="profile_image">
+              @endif
               <div class="ml-2 d-flex flex-column">
                 <a href="{{ url('users/' .$comment->user->id) }}" class="text-secondary">{{ $comment->user->name }}</a>
               </div>
@@ -93,7 +101,11 @@
                 @csrf
                 <div class="form-group row mb-0">
                   <div class="col-md-12 p-3 w-100 d-flex">
-                    <img src="{{ asset('storage/profile_image/' .$user->profile_image) }}" class="rounded-circle" width="50" height="50">
+                    @if ($user->profile_image == null)
+                      <img src="/img/mu.png" class="rounded-circle" width="50" height="50">
+                    @else
+                      <img src="{{ asset('storage/profile_image/' .$user->profile_image) }}" class="mr-2 rounded-circle" width="50" height="50" alt="profile_image">
+                    @endif
                     <div class="ml-2 d-flex flex-column">
                       <a href="{{ url('users/' .$user->id) }}" class="text-secondary">{{ $user->name }}</a>
                     </div>

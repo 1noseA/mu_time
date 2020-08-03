@@ -17,7 +17,7 @@
 
               <div class="col-md-6 d-flex align-items-center">
                 @if ($user->profile_image == null)
-                  <img src="/img/mu.png" class="rounded-circle" width="100" height="100">
+                  <img src="/img/mu.png" class="rounded-circle" width="80" height="80">
                 @else
                   <img src="{{ asset('storage/profile_image/' .$user->profile_image) }}" class="mr-2 rounded-circle" width="80" height="80" alt="profile_image">
                 @endif
