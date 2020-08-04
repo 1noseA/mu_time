@@ -99,4 +99,9 @@ class User extends Authenticatable
 
         return;
     }
+
+    public function counts()
+    {
+        return $this->hasMany(Count::class);
+    }
 }

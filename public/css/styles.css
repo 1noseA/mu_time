@@ -188,9 +188,6 @@ a.btn-emergency:active .btn-emergency-top {
 }
 
 .btn-emergency-top span {
-  font-size: 38px;
-  font-weight: bold;
-
   position: absolute;
   top: -24px;
   left: 0;
