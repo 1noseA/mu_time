@@ -52,10 +52,10 @@ class HomeController extends Controller
         return view('home', $data);
     }
 
-    public function count(){
-        $count = new count;
-        $count->user_id = Auth::id();
-        $count->save();
-        return redirect('/', compact('count'));
+    public function count(Request $request, Count $count){
+        $user = auth()->user();
+        $count->storeCount($user->id);
+        return back();
+        // return redirect('/', compact('count'));
     }
 }
