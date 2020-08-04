@@ -33,6 +33,7 @@
           <span class="btn-emergency-top"></span>
         </button>
       </form> --}}
+      <p>全ての虚無数：{{ $count_all }}虚無</p>
       <p>今日の虚無数：</p>
       <p>今週の虚無数：</p>
       <p>今月の虚無数：</p>

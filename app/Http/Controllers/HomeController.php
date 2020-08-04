@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Count;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -49,7 +50,8 @@ class HomeController extends Controller
         } 
          
         $data = ['msg'=>'あなたは ' .$count .' 人目の訪問者です。'];
-        return view('home', $data);
+        $count_all = DB::table('counts')->count();
+        return view('home', ['count_all' => $count_all], $data);
     }
 
     public function count(Request $request, Count $count){
