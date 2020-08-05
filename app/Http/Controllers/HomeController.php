@@ -53,7 +53,9 @@ class HomeController extends Controller
         $data = ['msg'=>'あなたは ' .$count .' 人目の訪問者です。'];
         $count_all = DB::table('counts')->count();
         $today = Count::whereDate('created_at', Carbon::today())->count();
-        return view('home', ['count_all' => $count_all, 'today' => $today], $data);
+        $week = Count::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->count();
+        $month = Count::where('created_at', '>=', Carbon::now()->firstOfMonth()->toDateTimeString())->count();
+        return view('home', ['count_all' => $count_all, 'today' => $today, 'week' => $week, 'month' => $month], $data);
     }
 
     public function count(Request $request, Count $count){
