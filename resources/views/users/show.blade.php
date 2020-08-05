@@ -55,6 +55,10 @@
                 <p class="font-weight-bold">フォロワー数</p>
                 <span>{{ $follower_count }}</span>
               </div>
+              <div class="p-2 d-flex flex-column align-items-center">
+                <p class="font-weight-bold">虚無数</p>
+                <span>{{ $kyomu_count }}</span>
+              </div>
             </div>
           </div>
         </div>
