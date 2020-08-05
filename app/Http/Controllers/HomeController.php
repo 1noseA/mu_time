@@ -62,6 +62,5 @@ class HomeController extends Controller
         $user = auth()->user();
         $count->storeCount($user->id);
         return back();
-        // return redirect('/', compact('count'));
     }
 }
