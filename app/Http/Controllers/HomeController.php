@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Count;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -51,7 +52,8 @@ class HomeController extends Controller
          
         $data = ['msg'=>'あなたは ' .$count .' 人目の訪問者です。'];
         $count_all = DB::table('counts')->count();
-        return view('home', ['count_all' => $count_all], $data);
+        $today = Count::whereDate('created_at', Carbon::today())->count();
+        return view('home', ['count_all' => $count_all, 'today' => $today], $data);
     }
 
     public function count(Request $request, Count $count){
