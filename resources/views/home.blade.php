@@ -4,6 +4,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-10 mx-auto my-5">
+      <h3 class="text-center mb-3">〜{{$msg}}〜</h3>
       <p>虚無虚無虚無虚無虚無虚無虚無虚無虚無虚無虚無虚無虚無虚無虚無虚無虚無虚無虚無虚無虚無虚無虚無虚無虚無虚無虚無虚無</p>
       <div class="top-text my-4">
         <p><strong>虚無感（きょむかん）</strong>とは、すべてが空しく感じること、何事にも意味や価値が感じられないような感覚、などを指す意味で用いられる表現です。たとえば、人生の意味や自分の存在意義などについて「まるで無意味なのではないか」という思いに苛まれているような状況は「虚無感にとらわれる」などと表現されます。</p>
@@ -18,13 +19,24 @@
         <h3>虚無を感じたらボタンを押そう！！！</h3>
         <h3 class="far fa-hand-point-down"></h3>
       
-      <a class="btn-emergency my-4">
-        <span class="btn-emergency-bottom"></span>
-        <span class="btn-emergency-top"></span>
-      </a>
-      <p>今日の虚無数：</p>
-      <p>今週の虚無数：</p>
-      <p>今月の虚無数：</p>
+      <form name="kyomu" method="POST" action="/count">
+        @csrf
+          <a href="javascript:kyomu.submit()" class="btn-emergency my-4">
+            <span class="btn-emergency-bottom"></span>
+            <span class="btn-emergency-top"></span>
+          </a>
+      </form>
+      {{-- <form method="POST" action="/count">
+        @csrf
+        <button type="submit" class="btn-emergency my-4">
+          <span class="btn-emergency-bottom"></span>
+          <span class="btn-emergency-top"></span>
+        </button>
+      </form> --}}
+      <p>全ての虚無数：{{ $count_all }}虚無</p>
+      <p>今日の虚無数：{{ $today }}虚無</p>
+      <p>今週の虚無数：{{ $week }}虚無</p>
+      <p>今月の虚無数：{{ $month }}虚無</p>
     </div>
       <p class="mt-5">虚無虚無虚無虚無虚無虚無虚無虚無虚無虚無虚無虚無虚無虚無虚無虚無虚無虚無虚無虚無虚無虚無虚無虚無虚無虚無虚無虚無</p>
       

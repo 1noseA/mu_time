@@ -28,4 +28,6 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('comments', 'CommentsController', ['only' => ['store', 'destroy']]);
 
     Route::resource('favorites', 'FavoritesController', ['only' => ['store', 'destroy']]);
+
+    Route::post('/count', 'HomeController@count');
 });

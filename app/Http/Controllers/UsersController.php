@@ -8,6 +8,8 @@ use Illuminate\Validation\Rule;
 use App\Models\User;
 use App\Models\Tweet;
 use App\Models\Follower;
+use App\Models\Count;
+use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
 {
@@ -57,6 +59,7 @@ class UsersController extends Controller
         $tweet_count = $tweet->getTweetCount($user->id);
         $follow_count = $follower->getFollowCount($user->id);
         $follower_count = $follower->getFollowerCount($user->id);
+        $kyomu_count = Count::where('user_id', Auth::id())->count();
 
         return view('users.show', [
             'user'           => $user,
@@ -65,7 +68,8 @@ class UsersController extends Controller
             'timelines'      => $timelines,
             'tweet_count'    => $tweet_count,
             'follow_count'   => $follow_count,
-            'follower_count' => $follower_count
+            'follower_count' => $follower_count,
+            'kyomu_count'    => $kyomu_count
         ]);
     }
 
